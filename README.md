@@ -1,7 +1,9 @@
 # Prototype for VRS
 ## Install MySQL
 
-run 
+RUN
+
+Ubuntu:
 ```
 sudo apt install mysql-server
 sudo apt-get install libmysqlclient-dev
@@ -9,6 +11,12 @@ sudo apt-get install libmariadbclient-dev
 
 sudo apt install mysql-client
 ```
+Mac:
+```
+brew install mysql
+```
+
+
 
 ### Change the MySQL login setup
 ```
