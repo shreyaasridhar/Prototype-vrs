@@ -23,6 +23,7 @@ brew install mysql
 sudo mysql -u root
 mysql > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
 mysql > FLUSH PRIVILEGES;
+mysql > create database mydb;
 ```
 
 run `source vrs/bin/activate`
