@@ -37,7 +37,7 @@ def sql(db_name):
     use_db = "USE {db}".format(db=db_name)
     #create table query
     #create_table = "CREATE TABLE IF NOT EXISTS MyUsers (firstname varchar(20), lastname varchar(20))"
-    create_table = "CREATE TABLE IF NOT EXISTS complaints (name varchar(20), category varchar(20), where_inc varchar(20), when_inc varchar(20), who varchar(20), victim varchar(20), anonymous varchar(20))"
+    create_table = "CREATE TABLE IF NOT EXISTS complaints (name varchar(50), category varchar(20), where_inc varchar(20), when_inc varchar(20), who varchar(20), victim varchar(20), anonymous varchar(20))"
     queries = [db, use_db, create_table]
     cur = mysql.connection.cursor()
     for query in queries:

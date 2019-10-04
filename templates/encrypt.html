@@ -1,6 +1,8 @@
-<a href="/">back</a>
-<a href="/dashboard">Decrypted Version</a>
+{% extends "layouts.html"  %}
 
+
+
+{% block content %}
 
 <h2>Table Encrypted</h2>
 <table border="1" cellpadding="5" cellspacing="5">
@@ -12,3 +14,5 @@
         </tr>
     {% endfor %}
 </table>
+
+{% endblock %}
