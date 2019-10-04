@@ -1,8 +1,10 @@
+<!--
 <HTML>
-<BODY bgcolor="cyan">
+<BODY bgcolor="#efefef">
 <form method="POST" action="">
     <center>
-    <H1>Enter your details </H1> <br>
+    <H1>File your Complaints </H1> <br>
+    Category
     First Name <input type = "text" name= "fname" /> <br>
     Last Name <input type = "text" name = "lname" /> <br>
     <input type = "submit">
@@ -11,4 +13,100 @@
 <a href="/dashboard">Dashboard</a>
 <a href="/encrypt">Encrypted</a>
 </BODY>
+</HTML>
+
+-->
+
+
+<HTML>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <BODY bgcolor="#efefef">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Vigilance Risk Management</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/encrypt">Encrypt</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="container">
+    <div class="jumbotron mt-5  mb-5">
+      <h1 class="display-4">File a Complaint</h1>
+      <p class="lead">We make your life safer!</p>
+    </div>
+  <form method="POST" action="" class="mt-5">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" placeholder="Name">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="category" class="col-sm-2 col-form-label">Category</label>
+      <div class="col-sm-10">
+        <select class="custom-select" name='category'>
+          <option selected>Category</option>
+          <option value="Harassment">Harassment</option>
+          <option value="Bullying">Bullying</option>
+          <option value="Conflicts">Conflicts</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="where" class="col-sm-2 col-form-label">Where</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Where" name='where_inc'>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="when" class="col-sm-2 col-form-label">When</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="When" name='when_inc'>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="who" class="col-sm-2 col-form-label">Who is/are involved?</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="Who" name='who'>
+      </div>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="victim" name='victim'>
+      <label class="custom-control-label" for="victim">Are you the victim?</label>
+    </div>
+
+    <div class="custom-control custom-switch">
+      <input type="checkbox" class="custom-control-input" id="anonymous" name='ananymous'>
+      <label class="custom-control-label" for="anonymous">Stay anonymous?</label>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input type = "submit">
+      </div>
+    </div>
+  </form>
+</div>
+  </BODY>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </HTML>

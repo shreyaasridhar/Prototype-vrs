@@ -36,7 +36,8 @@ def sql(db_name):
     db = "CREATE DATABASE IF NOT EXISTS {db}".format(db=db_name)
     use_db = "USE {db}".format(db=db_name)
     #create table query
-    create_table = "CREATE TABLE IF NOT EXISTS MyUsers (firstname varchar(20), lastname varchar(20))"
+    #create_table = "CREATE TABLE IF NOT EXISTS MyUsers (firstname varchar(20), lastname varchar(20))"
+    create_table = "CREATE TABLE IF NOT EXISTS complaints (name varchar(20), category varchar(20), where_inc varchar(20), when_inc varchar(20), who varchar(20), victim varchar(20), anonymous varchar(20))"
     queries = [db, use_db, create_table]
     cur = mysql.connection.cursor()
     for query in queries:
@@ -49,12 +50,18 @@ def sql(db_name):
 def index():
     sql(conf['MYSQL_DB'])
     if request.method == "POST":
-        details = request.form
-        firstName = details['fname']
-        lastName = details['lname']
+        details = request.form.to_dict()
+        print(details)
+        name = details['name']
+        category = details['category']
+        where_inc = details['where_inc']
+        when_inc = details['when_inc']
+        who = details['who']
+        victim = "True" if 'victim' in details else "False"
+        anonymous = "True" if 'anonymous' in details else "False"
         cur = mysql.connection.cursor()
-        query = "INSERT INTO MyUsers(firstName, lastName) VALUES (AES_ENCRYPT(%s, \"{key}\"), AES_ENCRYPT(%s, \"{key}\"));".format(key=encrypt_key)
-        cur.execute(query, (firstName,lastName))
+        query = "INSERT INTO complaints(name, category, where_inc, when_inc, who, victim, anonymous) VALUES (AES_ENCRYPT(%s, \"{key}\"), AES_ENCRYPT(%s, \"{key}\"), AES_ENCRYPT(%s, \"{key}\"),AES_ENCRYPT(%s, \"{key}\"),AES_ENCRYPT(%s, \"{key}\"),AES_ENCRYPT(%s, \"{key}\"),AES_ENCRYPT(%s, \"{key}\"));".format(key=encrypt_key)
+        cur.execute(query, (name, category, where_inc, when_inc, who, victim, anonymous))
         mysql.connection.commit()
         cur.close()
         return redirect(url_for('show_decrypted'))
@@ -64,7 +71,14 @@ def index():
 def show_decrypted():
     try:
         cur = mysql.connection.cursor()
-        query = "SELECT CAST(AES_DECRYPT(firstname, \"{key}\") AS CHAR(50)), CAST(AES_DECRYPT(lastname, \"{key}\") AS CHAR(50)) from MyUsers;".format(key=encrypt_key)
+        query = "SELECT CAST(AES_DECRYPT(name, \"{key}\") AS CHAR(50)), \
+            CAST(AES_DECRYPT(category, \"{key}\") AS CHAR(50)), \
+            CAST(AES_DECRYPT(where_inc, \"{key}\") AS CHAR(50)), \
+            CAST(AES_DECRYPT(when_inc, \"{key}\") AS CHAR(50)), \
+            CAST(AES_DECRYPT(who, \"{key}\") AS CHAR(50)),\
+            CAST(AES_DECRYPT(victim, \"{key}\") AS CHAR(50)), \
+            CAST(AES_DECRYPT(anonymous, \"{key}\") AS CHAR(50)) \
+            from complaints;".format(key=encrypt_key)
         cur.execute(query)
         data = cur.fetchall()
         cur.close()
@@ -78,7 +92,7 @@ def show_decrypted():
 def show_encrypted():
     try:
         cur = mysql.connection.cursor()
-        query = "SELECT * from MyUsers;"
+        query = "SELECT * from complaints;"
         cur.execute(query)
         data = cur.fetchall()
         cur.close()
