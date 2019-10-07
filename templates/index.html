@@ -1,24 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
 {% extends "layouts.html"  %}
 
 
 
 {% block content %}
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
 
-  <div class="container">
-    <div class="jumbotron mt-5  mb-5">
-      <h1 class="display-4">File a Complaint</h1>
-      <p class="lead">We make your life safer!</p>
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/mdi-font/css/material-design-iconic-font.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/font-awesome-4.7/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+      <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/datepicker/daterangepicker.css') }}">
+
+    <!-- Main CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-01 p-t-180 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w780">
+            <div class="card card-3">
+                <div style="background-color: white" class="card-heading"></div>
+                <div class="card-body">
+                     <div class="container">
+    <div>
+      <h1 style="color: white">File a Complaint</h1>
+      <p class="lead" style="color: white">We make your life safer!</p>
     </div>
-  <form method="POST" action="" class="mt-5">
-    <div class="form-group row">
-      <label for="name" class="col-sm-2 col-form-label">Name</label>
+
+</div>
+                      <form method="POST" action="" class="mt-5">
+    <div class="input-group">
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="name" placeholder="Name">
+        <input type="text" class="form-control" style="margin-left: -15px" name="name" placeholder="Name">
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="category" class="col-sm-2 col-form-label">Category</label>
       <div class="col-sm-10">
         <select class="custom-select" name='category'>
           <option selected>Category</option>
@@ -30,21 +63,21 @@
     </div>
 
     <div class="form-group row">
-      <label for="where" class="col-sm-2 col-form-label">Where</label>
+
       <div class="col-sm-10">
         <input type="text" class="form-control" placeholder="Where" name='where_inc'>
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="when" class="col-sm-2 col-form-label">When</label>
+
       <div class="col-sm-10">
         <input type="text" class="form-control" placeholder="When" name='when_inc'>
       </div>
     </div>
 
     <div class="form-group row">
-      <label for="who" class="col-sm-2 col-form-label">Who is/are involved?</label>
+{#      <label for="who" class="col-sm-2 col-form-label">Who is/are involved?</label>#}
       <div class="col-sm-10">
         <input type="text" class="form-control" placeholder="Who" name='who'>
       </div>
@@ -52,19 +85,35 @@
 
     <div class="custom-control custom-switch">
       <input type="checkbox" class="custom-control-input" id="victim" name='victim'>
-      <label class="custom-control-label" for="victim">Are you the victim?</label>
+      <label style="color: white" style="color: white" class="custom-control-label" for="victim">Are you the victim?</label>
     </div>
 
     <div class="custom-control custom-switch">
       <input type="checkbox" class="custom-control-input" id="anonymous" name='ananymous'>
-      <label class="custom-control-label" for="anonymous">Stay anonymous?</label>
+      <label style="color: white" class="custom-control-label" for="anonymous">Stay anonymous?</label>
     </div>
 
     <div class="form-group row">
-      <div class="col-sm-10">
+      <div style="margin-top: 15px;" class="col-sm-10">
         <input type = "submit">
       </div>
     </div>
   </form>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Jquery JS-->
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/select2/select2.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datepicker/moment.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/datepicker/daterangepicker.js')}}"></script>
+    <script src="{{url_for('static', filename='js/global.js')}}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
   {% endblock %}
+</html>
+<!-- end document-->
